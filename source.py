@@ -2,12 +2,6 @@ import requests
 from bs4 import BeautifulSoup
 import re
 
-new_index = 2
-iteration = 0
-
-# Specify output destination
-file = "D:\Web Crawler\crawl_frontier.txt"
-
 
 def store_page(url, title, content):
     pass
@@ -42,10 +36,16 @@ def get_URLs(content):
     return links
 
 
-def crawl(file):
+def crawl(file, k):
+    limit = 10  # This limit is for testing only
+
     x = 0
     crawl_frontier = open(file)
     for line in crawl_frontier:
+        k += 1
+        if k >= limit:
+            return
+
         url_strip = line[3:]
 
         if url_strip != "" and url_strip != " ":
@@ -67,4 +67,10 @@ def crawl(file):
 
 
 if __name__ == "__main__":
-    crawl(file)
+    new_index = 2
+    iteration = 0
+    k = 0
+
+    # Specify output destination
+    file = "crawl_frontier.txt"
+    crawl(file, k)

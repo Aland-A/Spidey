@@ -36,7 +36,7 @@ def request_page(url):
 
 
 def get_URLs(content):
-    pattern = r'"(https://[^"]+)"'
+    pattern = r'"(https?://[^"]+)"'
 
     links = re.findall(pattern, content)
     return links

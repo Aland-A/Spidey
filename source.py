@@ -66,4 +66,5 @@ def crawl(file):
     crawl_frontier.close()
 
 
-crawl(file)
+if __name__ == "__main__":
+    crawl(file)
